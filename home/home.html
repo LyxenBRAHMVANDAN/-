@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Lyxen | BRAHMVANDA</title>
+<link rel="icon" type="image/png" href="favicon1.png">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<div id="splashScreen">
+<img src="logo.png" alt="Logo" class="splash-logo">
+<div class="splash-title">Lyxen</div>
+</div>
+
+<div class="page-wrapper">
+<div class="sidebar-panel">
+<div class="sidebar-content">
+<div class="brand-container">
+<img src="logo.png" alt="Logo" class="brand-logo">
+<div class="brand-title">Lyxen</div>
+</div>
+<div class="nav-menu">
+<a href="#home" class="nav-link active" data-view="homeView" id="homeNavLink">Home</a>
+<a href="#products" class="nav-link" data-view="productsView">Product</a>
+<a href="#sales" class="nav-link" data-view="salesView">Sales</a>
+<a href="#gallery" class="nav-link" data-view="galleryView">Gallery</a>
+<a href="#group" class="nav-link" data-view="groupView">Group</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+<a href="inventory.html" class="inventory-btn">
+<div class="inventory-label">Online Inventory</div>
+</a>
+</div>
+<div class="main-display-area">
+<div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+    <span></span>
+  </div>    
+
+<div id="homeView" class="view-panel active">
+<video autoplay muted loop class="bg-video">
+<source src="home-bg.mp4" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
+<div class="home-center-box">
+<img src="logo.png" alt="Logo" class="home-center-logo">
+<div class="home-company-name">Lyxen</div>
+<div class="home-sub-text1">Diamond & Jewellery</div>
+<div class="home-sub-text2">Manufacturer Diamond & Jewellery & Selling Worldwide</div>
+</div>
+</div>
+
+<div id="productsView" class="view-panel">
+<div>
+<h1 class="panel-heading">Products</h1>
+<p class="panel-text">
+Welcome to Lyxen, where exceptional craftsmanship meets uncompromising quality across our comprehensive product range. We specialize in sourcing and supplying top-grade certified diamonds, alongside manufacturing exquisite diamond jewellery crafted with perfection. In addition to our fine collections, we offer a trendy and elegant range of imitation jewellery designed for every occasion, ensuring unmatchable value, style, and brilliance worldwide.
+</p>
+</div>
+
+<div class="slider-wrapper">
+<div class="slider-container">
+<div class="slide active"><img src="product-1.png" alt="Product 1"></div>
+<div class="slide"><img src="product-2.png" alt="Product 2"></div>
+<div class="slide"><img src="product-3.png" alt="Product 3"></div>
+<div class="slide"><img src="product-4.png" alt="Product 4"></div>
+</div>
+<div class="slider-dots">
+<span class="dot active" data-index="0"></span>
+<span class="dot" data-index="1"></span>
+<span class="dot" data-index="2"></span>
+<span class="dot" data-index="3"></span>
+</div>
+</div>
+
+<div class="product-bottom-info">
+<p>Each product undergoes rigorous quality inspections to guarantee exceptional brilliance, authenticity, and global standards. We provide trusted worldwide delivery and custom design solutions tailored to meet your exact business demands.</p>
+</div>
+</div>
+
+<div id="salesView" class="view-panel">
+<div>
+<h1 class="panel-heading">Sales & Distribution</h1>
+<p class="panel-text">At Lyxen, we maintain a streamlined and efficient distribution network to ensure a seamless and reliable service experience for our clients worldwide.</p>
+</div>
+
+<div class="sales-container">
+<div class="sales-top-details">
+<p class="panel-text">
+Managed directly from our headquarters, our operations are strategically organized to handle global demands, ensuring that every order is processed and delivered accurately and on time.
+</p>
+<p class="panel-text">
+Our dedicated team oversees every step—from rigorous quality inspections to secure international packaging and shipping. Keeping modern market trends in mind, we specialize in three core categories:
+</p>
+<ul class="sales-list">
+<li><strong>Diamonds:</strong> A vast range of premium-grade, certified loose diamonds known for exceptional brilliance and absolute purity.</li>
+<li><strong>Diamond Jewellery:</strong> Exquisite contemporary and traditional diamond ornaments designed to elevate every special occasion.</li>
+<li><strong>Imitation Jewellery:</strong> Trendy, stylish, and premium artificial jewellery collections that mimic fine craftsmanship.</li>
+</ul>
+<p class="panel-text">
+Furthermore, our advanced digital platform and e-commerce portal empower clients to explore our full catalog, view detailed product specifications, and place orders seamlessly from anywhere in the world.
+</p>
+</div>
+
+<div class="sales-bottom-banner">
+<img src="sales-banner.png" alt="Sales Banner">
+</div>
+</div>
+</div>
+
+<div id="galleryView" class="view-panel">
+<video autoplay muted loop class="bg-video">
+<source src="gallery-bg.mp4" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
+</div>
+
+<div id="groupView" class="view-panel">
+<div>
+<h1 class="panel-heading">Community & Social Groups</h1>
+<p class="panel-text">Connect with us across our official social channels and community groups to stay updated with our latest collections and announcements.</p>
+</div>
+
+<div class="group-wrapper">
+<div class="group-grid">
+<a href="https://chat.whatsapp.com/JyIrlfVLdUkHJ6U1yxHXh5" target="_blank" class="group-card">
+<div class="group-title">WhatsApp Group</div>
+<div class="group-desc">Join our official WhatsApp community for direct updates and wholesale inquiries.</div>
+</a>
+
+<a href="https://t.me/+iRQbWkiE-9w2OTRl" target="_blank" class="group-card">
+<div class="group-title">Telegram Group</div>
+<div class="group-desc">Connect on Telegram for regular catalog updates and stock availability.</div>
+</a>
+
+<a href="https://www.instagram.com/direct/t/18129291544547433/" target="_blank" class="group-card">
+<div class="group-title">Instagram</div>
+<div class="group-desc">Follow our Instagram handle and broadcast channel for designer showcases.</div>
+</a>
+
+<a href="https://www.facebook.com/groups/4824166884481461" target="_blank" class="group-card">
+<div class="group-title">Facebook Group</div>
+<div class="group-desc">Be a part of our global Facebook network and community discussions.</div>
+</a>
+
+<a href="https://www.youtube.com/@LyxenBRAHMVANDAN" target="_blank" class="group-card">
+<div class="group-title">YouTube Channel</div>
+<div class="group-desc">Subscribe to our YouTube channel for video showcases of our products.</div>
+</a>
+
+<a href="https://x.com/@BRAHMVANDAN" target="_blank" class="group-card">
+<div class="group-title">X (Twitter)</div>
+<div class="group-desc">Follow us on X for real-time updates, news, and global announcements.</div>
+</a>
+
+<a href="https://www.linkedin.com/groups/42829036/" target="_blank" class="group-card">
+<div class="group-title">LinkedIn Group</div>
+<div class="group-desc">Connect with our professional business network and corporate updates.</div>
+</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<script src="home.js"></script>
+</body>
+</html>

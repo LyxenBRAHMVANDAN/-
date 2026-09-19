@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>Lyxen | BRAHMVANDA</title>
+    <link rel="icon" type="image/png" href="favicon1.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* ========================================================= 
+           RESET 
+           ========================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        /* ========================================================= 
+           BACKGROUND VIDEO 
+           ========================================================= */
+        #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            background: #000;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ========================================================= 
+           VIDEO OVERLAY 
+           ========================================================= */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.48);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ========================================================= 
+           CONTENT 
+           ========================================================= */
+        .inventory-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* ========================================================= 
+           INVENTORY BUTTON 
+           ========================================================= */
+        .inventory-link {
+            display: block;
+            width: 100%;
+            max-width: 700px;
+            padding: 18px 35px;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.58);
+            border: 2px solid rgba(255, 255, 255, 0.28);
+            border-radius: 15px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .inventory-link:hover {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* ========================================================= 
+           SPLASH SCREEN 
+           ========================================================= */
+        #splashScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            z-index: 99999;
+        }
+
+        /* ========================================================= 
+           SPLASH LOGO & TITLE 
+           ========================================================= */
+        .splash-logo {
+            width: auto;
+            max-width: 110px;
+            max-height: 110px;
+            object-fit: contain;
+            margin-bottom: 18px;
+            animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            filter: drop-shadow(0 10px 25px rgba(255, 255, 255, 0.2));
+        }
+
+        .splash-title {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 14px;
+            text-transform: uppercase;
+            position: relative;
+            left: 7px;
+            animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ========================================================= 
+           MEDIA QUERIES (TABLET & MOBILE) 
+           ========================================================= */
+        @media (max-width: 768px) {
+            .inventory-wrapper {
+                gap: 20px;
+                padding: 18px;
+            }
+            .inventory-link {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+                padding: 14px 20px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .splash-logo {
+                max-width: 85px;
+                max-height: 85px;
+                margin-bottom: 15px;
+            }
+            .splash-title {
+                font-size: 1.5rem;
+                letter-spacing: 9px;
+                left: 4px;
+            }
+            .inventory-wrapper {
+                gap: 16px;
+                padding: 15px;
+            }
+            .inventory-link {
+                font-size: 1rem;
+                letter-spacing: 2px;
+                padding: 14px 12px;
+                border-radius: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND VIDEO -->
+    <video id="bgVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture>
+        <source src="./inventorybackground.mp4" type="video/mp4">
+    </video>
+
+    <!-- DARK OVERLAY -->
+    <div class="video-overlay"></div>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splashScreen">
+        <img src="./logo.png" alt="Logo" class="splash-logo">
+        <div class="splash-title">Lyxen</div>
+    </div>
+
+    <!-- MAIN OPTIONS -->
+    <div class="inventory-wrapper">
+        <a href="chatinventory.html" class="inventory-link">Chat for Inventory</a>
+        <a href="viewinventory.html" class="inventory-link">View Inventory on Website</a>
+        <a href="home.html" class="inventory-link">Back Home</a>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const video = document.getElementById('bgVideo');
+
+            /* SPLASH - 2 SECONDS */
+            setTimeout(function() {
+                $('#splashScreen').fadeOut(400, function() {
+                    $(this).remove();
+                });
+            }, 2000);
+
+            /* VIDEO SETTINGS & PLAYBACK */
+            if (video) {
+                video.muted = true;
+                video.defaultMuted = true;
+                video.volume = 0;
+                video.autoplay = true;
+                video.loop = true;
+                video.playsInline = true;
+
+                function startVideo() {
+                    video.muted = true;
+                    video.volume = 0;
+                    const playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(function() {
+                            console.log("Inventory background video playing.");
+                        }).catch(function(error) {
+                            console.log("Autoplay blocked:", error);
+                        });
+                    }
+                }
+
+                video.addEventListener('loadeddata', function() { startVideo(); });
+                video.addEventListener('canplay', function() { startVideo(); });
+                video.addEventListener('loadedmetadata', function() { startVideo(); });
+                window.addEventListener('load', function() { startVideo(); });
+
+                setTimeout(startVideo, 300);
+                setTimeout(startVideo, 1000);
+                setTimeout(startVideo, 2500);
+
+                document.addEventListener('click', function() { startVideo(); }, { once: false, passive: true });
+                document.addEventListener('touchstart', function() { startVideo(); }, { once: false, passive: true });
+
+                video.addEventListener('pause', function() {
+                    if (!video.ended) {
+                        setTimeout(startVideo, 200);
+                    }
+                });
+
+                video.addEventListener('error', function() {
+                    console.log("ERROR: inventorybackground.mp4 could not be loaded.");
+                    console.log("Video error:", video.error);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

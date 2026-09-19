@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lyxen | BRAHMVANDA</title>
+    <link rel="icon" type="image/png" href="favicon1.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="chatinventory.css">
+</head>
+<body>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splashScreen">
+        <img src="./logo.png" alt="Logo" class="splash-logo">
+        <div class="splash-title">Lyxen</div>
+    </div>
+
+    <!-- PROFESSIONAL TOP HEADER BAR WITH LOGO AND NAME -->
+    <header class="professional-header">
+        <div class="header-brand-group">
+            <img src="./logo.png" alt="Logo" class="header-logo-img">
+            <div class="header-brand-name">Lyxen</div>
+        </div>
+        <div class="header-nav-right">
+            <button type="button" class="main-header-tab active" data-target="section-diamond">Diamond</button>
+            <button type="button" class="main-header-tab" data-target="section-diamond-jewelry">Diamond Jewelry</button>
+            <button type="button" class="main-header-tab" data-target="section-imitation-jewelry">Imitation Jewelry</button>
+            <a href="inventory.html" class="main-header-tab">Back</a>
+        </div>
+    </header>
+
+    <!-- 1. DIAMOND SECTION -->
+    <div id="section-diamond" class="main-section-content active">
+        <h1 class="page-big-heading">Select Diamond</h1>
+
+        <div class="diamond-tabs-bar" id="diamondTabsBar">
+          <button type="button" class="diamond-tab active" data-id="1">Diamond List 1</button>
+          <button type="button" class="diamond-add-tab-btn" id="addDiamondTabBtn" title="Add New Diamond List">+</button>
+        </div>
+
+        <div id="diamondBlocksWrapper">
+          <div class="diamond-block-content active" data-id="1">
+            <section class="diamond-container">
+              <h2 class="diamond-title">Shape</h2>
+              <div class="shape-grid shapeGrid"></div>
+            </section>
+
+            <section class="measurement-container">
+              <h2 class="measurement-title">Carat / MM / Point</h2>
+              <div class="measurement-mode">
+                <button type="button" class="measurement-mode-button selected" data-mode="carat">Carat</button>
+                <button type="button" class="measurement-mode-button" data-mode="mm">MM</button>
+                <button type="button" class="measurement-mode-button" data-mode="point">Point</button>
+              </div>
+
+              <div class="measurement-panel active caratPanel">
+                <div class="measurement-row">
+                  <div class="measurement-inputs">
+                    <input type="number" step="0.01" class="measurement-input caratMin" placeholder="Min, ct">
+                    <span class="measurement-separator">›</span>
+                    <input type="number" step="0.01" class="measurement-input caratMax" placeholder="Max, ct">
+                  </div>
+                  <div class="range-grid caratRanges"></div>
+                </div>
+              </div>
+
+              <div class="measurement-panel mmPanel">
+                <div class="measurement-row">
+                  <div class="measurement-inputs">
+                    <input type="number" step="0.01" class="measurement-input mmMin" placeholder="Min, mm">
+                    <span class="measurement-separator">›</span>
+                    <input type="number" step="0.01" class="measurement-input mmMax" placeholder="Max, mm">
+                  </div>
+                  <div class="range-grid mmRanges"></div>
+                </div>
+              </div>
+
+              <div class="measurement-panel pointPanel">
+                <div class="measurement-row">
+                  <div class="measurement-inputs">
+                    <input type="number" step="1" class="measurement-input pointMin" placeholder="Min, pt">
+                    <span class="measurement-separator">›</span>
+                    <input type="number" step="1" class="measurement-input pointMax" placeholder="Max, pt">
+                  </div>
+                  <div class="range-grid pointRanges"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="clarity-container">
+              <h2 class="clarity-title">Clarity</h2>
+              <div class="clarity-grid clarityGrid"></div>
+            </section>
+
+            <section class="color-container">
+              <h2 class="color-title">Color</h2>
+              <div class="color-type-buttons">
+                <button type="button" class="color-type-button selected" data-color-type="standard">Color</button>
+                <button type="button" class="color-type-button" data-color-type="fancy">Fancy Color</button>
+              </div>
+              <div class="color-panel standardColorPanel active">
+                <div class="standard-color-label">Standard Colors (D - Z Range)</div>
+                <div class="standard-color-grid standardColorGrid"></div>
+              </div>
+              <div class="color-panel fancyColorPanel">
+                <div class="fancy-color-grid fancyColorGrid"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <section class="all-select-diamond-container">
+          <h2 class="all-select-diamond-title">All Select Diamond</h2>
+          <div class="all-select-cards-wrapper" id="allSelectCardsWrapper"></div>
+        </section>
+
+        <!-- PLATFORM CONTAINER -->
+        <section class="platform-container" id="platformSection">
+          <h2 class="platform-title">Which platform do you use?</h2>
+          <select class="platform-select" id="platformSelect">
+            <option value="" disabled selected style="color: #666;">Select Platform</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="email">Email</option>
+          </select>
+        </section>
+
+        <div class="section-btn-wrap">
+          <button type="button" class="section-remove-btn" data-remove-section="1">Remove</button>
+          <button type="button" class="section-save-btn" data-save-section="1">Confirm</button>
+        </div>
+    </div>
+
+    <!-- 2. DIAMOND JEWELRY SECTION -->
+    <div id="section-diamond-jewelry" class="main-section-content">
+        <h1 class="page-big-heading">Diamond Jewelry</h1>
+        
+        <div class="empty-section-box" style="margin-bottom: 20px;">
+            Diamond Jewelry Section - Coming Soon
+        </div>
+
+        <!-- TITLE CONTAINER -->
+        <section class="custom-input-container">
+          <h2 class="custom-input-title">Title</h2>
+          <input type="text" class="custom-text-input" id="jewelryTitleInput" placeholder="Enter title here...">
+        </section>
+
+        <!-- MESSAGE CONTAINER -->
+        <section class="custom-input-container">
+          <h2 class="custom-input-title">Message</h2>
+          <textarea class="custom-textarea" id="jewelryMessageInput" placeholder="Enter your message here..."></textarea>
+        </section>
+
+        <!-- PLATFORM CONTAINER -->
+        <section class="platform-container" id="platformSectionJewelry">
+          <h2 class="platform-title">Which platform do you use?</h2>
+          <select class="platform-select" id="platformSelectJewelry">
+            <option value="" disabled selected style="color: #666;">Select Platform</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="email">Email</option>
+          </select>
+        </section>
+
+        <div class="section-btn-wrap">
+          <button type="button" class="section-remove-btn" data-remove-section="jewelry">Remove</button>
+          <button type="button" class="section-save-btn" data-save-section="jewelry">Confirm</button>
+        </div>
+    </div>
+
+    <!-- 3. IMITATION JEWELRY SECTION -->
+    <div id="section-imitation-jewelry" class="main-section-content">
+        <h1 class="page-big-heading">Imitation Jewelry</h1>
+
+        <div class="empty-section-box" style="margin-bottom: 20px;">
+            Imitation Jewelry Section - Coming Soon
+        </div>
+
+        <!-- TITLE CONTAINER -->
+        <section class="custom-input-container">
+          <h2 class="custom-input-title">Title</h2>
+          <input type="text" class="custom-text-input" id="imitationTitleInput" placeholder="Enter title here...">
+        </section>
+
+        <!-- MESSAGE CONTAINER -->
+        <section class="custom-input-container">
+          <h2 class="custom-input-title">Message</h2>
+          <textarea class="custom-textarea" id="imitationMessageInput" placeholder="Enter your message here..."></textarea>
+        </section>
+
+        <!-- PLATFORM CONTAINER -->
+        <section class="platform-container" id="platformSectionImitation">
+          <h2 class="platform-title">Which platform do you use?</h2>
+          <select class="platform-select" id="platformSelectImitation">
+            <option value="" disabled selected style="color: #666;">Select Platform</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="email">Email</option>
+          </select>
+        </section>
+
+        <div class="section-btn-wrap">
+          <button type="button" class="section-remove-btn" data-remove-section="imitation">Remove</button>
+          <button type="button" class="section-save-btn" data-save-section="imitation">Confirm</button>
+        </div>
+    </div>
+
+    <script src="chatinventory.js"></script>
+</body>
+</html>

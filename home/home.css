@@ -1,0 +1,109 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:#000000;position:fixed}
+
+#splashScreen{position:fixed;top:0;left:0;width:100%;height:100%;background:#000000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:99999;animation: fadeOutAnim 0.5s ease 1.5s forwards;}
+.splash-logo{width:auto;max-width:110px;max-height:110px;object-fit:contain;margin-bottom:18px;animation:zoomIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards;filter:drop-shadow(0 10px 25px rgba(255,255,255,0.2))}
+.splash-title{color:#ffffff;font-size:2rem;font-weight:500;letter-spacing:14px;text-transform:uppercase;animation:zoomIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards;position:relative;left:7px}
+
+@keyframes zoomIn{0%{transform:scale(0.8);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes fadeOutAnim{0%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+
+.page-wrapper{width:100%;height:100%;height:100dvh;display:flex}
+.sidebar-panel{width:360px;height:100%;background:#000000;display:flex;flex-direction:column;justify-content:space-between;padding:30px;z-index:10;border-right:1px solid rgba(255,255,255,0.08);flex-shrink:0}
+.sidebar-content{display:flex;flex-direction:column;align-items:flex-start;width:100%}
+.brand-container{width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:25px;text-align:center}
+.brand-logo{width:auto;max-width:55px;max-height:55px;object-fit:contain;margin-bottom:10px;filter:drop-shadow(0 4px 10px rgba(255,255,255,0.15))}
+.brand-title{color:#ffffff;font-size:1.3rem;font-weight:600;letter-spacing:7px;text-transform:uppercase}
+.nav-menu{display:flex;flex-direction:column;gap:12px;text-align:left;width:100%}
+.nav-menu a{color:#888888;text-decoration:none;font-size:1rem;letter-spacing:2.5px;text-transform:uppercase;transition:.3s;padding:2px 0;font-weight:500;display:block}
+.nav-menu a:hover,.nav-menu a.active{color:#ffffff;text-shadow:0 0 10px rgba(255,255,255,0.4)}
+.inventory-btn{position:relative;padding:15px 20px;border-radius:16px;background:rgba(255,255,255,0.02);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);overflow:hidden;width:100%;text-align:left;margin-top:10px;box-shadow:0 10px 30px rgba(0,0,0,0.6);text-decoration:none;display:block;flex-shrink:0}
+.inventory-btn::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(transparent,transparent,transparent,#00c6ff,#ff8a00,#fff);animation:rotateGlow 4s linear infinite;z-index:-1}
+.inventory-btn::after{content:'';position:absolute;inset:2px;background:#0a0a0a;border-radius:14px;z-index:-1}
+@keyframes rotateGlow{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.inventory-label{color:#ffffff;font-size:1rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;text-align:left}
+
+.main-display-area{flex:1;height:100%;background:#000000;position:relative;overflow:hidden}
+
+.view-panel{position:absolute;top:0;left:0;width:100%;height:100%;background:#000000;padding:30px 45px;display:none;flex-direction:column;justify-content:space-between;overflow-y:auto}
+.view-panel.active{display:flex}
+
+#homeView{padding:0;overflow:hidden}
+#galleryView{padding:0;overflow:hidden;height:100%;}
+
+.bg-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;z-index:1;opacity:0.6}
+.video-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:2}
+.home-center-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;max-width:900px;padding:0 20px}
+.home-center-logo{width:auto;max-width:160px;max-height:110px;object-fit:contain;margin-bottom:20px;filter:drop-shadow(0 10px 25px rgba(0,0,0,0.6))}
+.home-company-name{color:#ffffff;font-size:clamp(2.2rem, 5vw, 4rem);font-weight:600;letter-spacing:14px;text-transform:uppercase;text-shadow:0 5px 25px rgba(0,0,0,0.9);margin-bottom:12px;position:relative;left:7px}
+.home-sub-text1{color:#e0e0e0;font-size:clamp(1.1rem, 2.5vw, 1.5rem);font-weight:400;letter-spacing:6px;text-transform:uppercase;text-shadow:0 3px 15px rgba(0,0,0,0.9);margin-bottom:10px}
+.home-sub-text2{color:#aaaaaa;font-size:clamp(0.85rem, 1.8vw, 1.15rem);font-weight:300;letter-spacing:4px;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,0.9)}
+
+.panel-heading{font-size:2.2rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:#ffffff;margin-bottom:6px;text-align:left}
+.panel-text{color:#dddddd;font-size:1.02rem;line-height:1.4;letter-spacing:0.8px;text-align:left;margin-bottom:0;font-weight:400}
+
+.slider-wrapper{position:relative;width:100%;max-width:1000px;flex:1;margin:8px 0;display:flex;flex-direction:column}
+.slider-container{position:relative;width:100%;height:100%;overflow:hidden;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.9);border:1px solid rgba(255,255,255,0.15);background:#000000}
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1s ease-in-out;display:flex;justify-content:center;align-items:center}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide video{width:100%;height:100%;object-fit:cover}
+
+.slider-dots{display:flex;justify-content:center;gap:10px;margin-top:6px}
+.dot{width:10px;height:10px;background:rgba(255,255,255,0.3);border-radius:50%;cursor:pointer;transition:0.3s}
+.dot.active{background:#ffffff;width:25px;border-radius:5px}
+
+.product-bottom-info{max-width:1000px;color:#dddddd;font-size:1.02rem;line-height:1.4;letter-spacing:0.8px;font-weight:400}
+
+/* Sales Layout */
+.sales-container{display:flex;flex-direction:column;justify-content:space-between;flex:1;width:100%;gap:12px;margin-top:8px;min-height:0}
+.sales-top-details{display:flex;flex-direction:column;gap:8px}
+.sales-list{color:#dddddd;padding-left:20px;font-size:0.98rem;line-height:1.4;letter-spacing:0.8px}
+.sales-bottom-banner{width:100%;flex:1;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,0.8);overflow:hidden;min-height:220px}
+.sales-bottom-banner img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+
+/* Larger Professional Group Grid Layout (7 Cards) */
+.group-wrapper{display:flex;flex-direction:column;justify-content:space-between;flex:1;width:100%;margin-top:12px;min-height:0}
+.group-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;width:100%;flex:1;min-height:0}
+.group-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);padding:22px 26px;border-radius:14px;text-decoration:none;display:flex;flex-direction:column;justify-content:center;gap:8px;transition:0.3s;box-shadow:0 10px 25px rgba(0,0,0,0.6)}
+.group-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.3);transform:translateY(-3px)}
+.group-title{color:#ffffff;font-size:1.25rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase}
+.group-desc{color:#cccccc;font-size:0.98rem;line-height:1.45;letter-spacing:0.5px}
+
+@media screen and (max-width: 900px) {
+  .sidebar-panel {
+    position: fixed; top: 0; left: -100%; width: 100vw; height: 100vh; height: 100dvh;
+    background: #000; z-index: 99999; display: flex; flex-direction: column;
+    align-items: center; justify-content: space-between; padding: 25px 15px; box-sizing: border-box; transition: 0.3s;
+  }
+  .sidebar-panel.mobile-active { left: 0; }
+  .sidebar-panel.mobile-active ~ .main-display-area { display: none !important; }
+
+  .sidebar-panel img, .sidebar-panel .logo { width: 150px; height: 150px; object-fit: contain; margin-bottom: 8px; }
+  .sidebar-panel h1, .sidebar-panel .brand-name { font-size: 3rem; font-weight: 800; letter-spacing: 10px; color: #fff; margin: 0; text-transform: uppercase; }
+
+  .sidebar-panel .nav-menu { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
+  .sidebar-panel .nav-link, .sidebar-panel a { font-size: 1.2rem; font-weight: 600; letter-spacing: 3px; color: #ccc; text-decoration: none; text-transform: uppercase; }
+  .sidebar-panel .nav-link.active, .sidebar-panel a:hover { color: #fff; }
+
+  .sidebar-panel .inventory-btn { width: 90%; max-width: 320px; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; text-align: center; text-decoration: none; margin: 0 auto; }
+  .sidebar-panel .inventory-label { font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; color: #fff; text-transform: uppercase; }
+
+  .main-display-area { width: 100%; height: 100vh; height: 100dvh; padding-top: 70px; box-sizing: border-box; overflow-y: auto; }
+  img, .product-img, .gallery-img { max-width: 100%; height: auto; object-fit: contain; }
+
+  /* બટન એકદમ પારદર્શક (Transparent) */
+  .mobile-menu-toggle {
+    display: flex; position: fixed; top: 15px; left: 15px; z-index: 99998;
+    background: transparent; border: none; padding: 8px; cursor: pointer; width: 40px; height: 40px;
+    align-items: center; justify-content: center; box-shadow: none;
+  }
+  .mobile-menu-toggle span { display: block; width: 22px; height: 2px; background: #fff; position: relative; }
+  .mobile-menu-toggle span::before, .mobile-menu-toggle span::after { content: ''; position: absolute; width: 22px; height: 2px; background: #fff; left: 0; }
+  .mobile-menu-toggle span::before { top: -6px; }
+  .mobile-menu-toggle span::after { bottom: -6px; }
+}
+
+@media screen and (min-width: 901px) {
+  .mobile-menu-toggle { display: none; }
+}
